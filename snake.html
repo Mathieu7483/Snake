@@ -1,0 +1,166 @@
+<!-- DEBUT DU SCRIPT -->
+
+<CENTER><SCRIPT>
+/*
+SNAKE / SCRIPT EDITE SUR L'EDITEUR JAVASCRIPT
+http://www.editeurjavscript.com
+*/
+sna_game = false;
+sna_larg = 600;
+sna_haut = 400;
+sna_X = new Array;
+sna_Y = new Array;
+sna_newX = new Array;
+sna_newY = new Array;
+	
+function d(texte)
+	{
+	document.write(texte);
+	}
+	
+function sna_draw()
+	{
+	sna_score --;
+	if(sna_mode == 1)
+		{
+		sna_X_first = sna_X[1]+20;
+		sna_Y_first = sna_Y[1];
+		}
+	if(sna_mode == 2)
+		{
+		sna_X_first = sna_X[1]-20;
+		sna_Y_first = sna_Y[1];
+		}
+	if(sna_mode == 3)
+		{
+		sna_Y_first = sna_Y[1]+20;
+		sna_X_first = sna_X[1];
+		}
+	if(sna_mode == 4)
+		{
+		sna_Y_first = sna_Y[1]-20;
+		sna_X_first = sna_X[1];
+		}
+	if(sna_X_first == sna_bouleX && sna_bouleY == sna_Y_first)
+		{
+		sna_win_visibility = 'visible';
+		setTimeout("sna_win_visibility = 'hidden'",1000);
+		sna_winX = sna_bouleX-10;
+		sna_winY = sna_bouleY;
+		sna_boule();
+		sna_nbbloc++;
+		sna_score += 50;
+		}
+	if(sna_X_first < 0 || sna_X_first>sna_larg-20 || sna_Y_first < 0 || sna_Y_first>sna_haut-20)
+		{
+		document.getElementById("sna_cadre").innerHTML = "PERDU, VOUS ETES DANS L'DECOR !!!<BR>APPUYEZ SUR \"D\" POUR COMMENCER";
+		sna_game = false;
+		return(false)
+		} 
+	for(a=1;a<=sna_nbbloc;a++)
+		{
+		if(a==1)
+			{
+			temp = '<DIV STYLE="z-index:10;position:absolute;width:20;height:20;top:'+sna_Y_first+';left:'+sna_X_first+';background:#698176" ID=bloc'+a+'></DIV>';
+			sna_newX[a] = sna_X_first;
+			sna_newY[a] = sna_Y_first;	
+			}
+		else
+			{
+			temp += '<DIV STYLE="z-index:10;position:absolute;width:20;height:20;top:'+sna_Y[a-1]+';left:'+sna_X[a-1]+';background:#698176" ID=bloc'+a+'></DIV>';
+			sna_newX[a] = sna_X[a-1];
+			sna_newY[a] = sna_Y[a-1];
+			if((sna_newX[a] ==  sna_X_first) && (sna_newY[a] ==  sna_Y_first))
+				{
+				document.getElementById("sna_cadre").innerHTML = "PERDU, VOUS VOUS ETES TOUCHE !!<BR>APPUYEZ SUR \"D\" POUR COMMENCER";
+				sna_game = false;
+				return(false)
+				}
+			}
+		}
+	for(a=1;a<=sna_nbbloc;a++)
+		{
+		sna_Y[a] = sna_newY[a]
+		sna_X[a] = sna_newX[a]
+		}
+	temp += '<DIV STYLE="z-index:10;position:absolute;width:20;height:20;top:'+sna_bouleY+';left:'+sna_bouleX+';background:#4A5B53" ID=sna_boule></DIV><DIV STYLE="z-index:15;position:absolute;width:40;height:20;top:'+sna_winY+';left:'+sna_winX+';background:#4A5B53;visibility:'+sna_win_visibility+';color:#94B6A6" ID=sna_win>+50</DIV>';
+	document.getElementById("sna_cadre").innerHTML = temp;
+	document.getElementById("sna_afficheur").innerHTML = "Votre score : "+sna_score;
+	setTimeout("sna_draw(10)",200);
+	}
+d('<DIV STYLE="position:relative;width:'+sna_larg+';height:'+sna_haut+';border-width:0;border-style:solid;border-color:black;background:#94B6A6"><DIV STYLE="position:absolute;width:'+sna_larg+';height:'+sna_haut+';top:0;left:0;color:#4A5B53;font-family:System;font-size:bold;" ID=sna_cadre>APPUYEZ SUR "D" POUR COMMENCER');
+
+d('</DIV></DIV>');
+function getKey(keyStroke) {
+isNetscape=(document.getElementById && !document.all);
+eventChooser = (isNetscape) ? keyStroke.which : event.keyCode;
+touche = String.fromCharCode(eventChooser).toLowerCase();
+if(sna_game)
+	{
+	if(touche==4 && sna_mode != 1)
+		sna_mode = 2;
+	if(touche==6 && sna_mode!=2)
+		sna_mode = 1;
+	if(touche==8 && sna_mode!=3)
+		sna_mode = 4;
+	if(touche==2 && sna_mode!=4)
+		sna_mode = 3;
+	}
+if(touche=="d")
+	{
+	sna_score = 0;
+	sna_winX = 0;
+	sna_winY = 0;
+	sna_game = true;
+	sna_win_visibility = 'hidden'
+	sna_bouleX = 100;
+	sna_bouleY = 80;
+	sna_nbbloc = 10;
+	sna_Y[1] = 240
+	sna_Y[2] = 240
+	sna_Y[3] = 240
+	sna_Y[4] = 240
+	sna_Y[5] = 240
+	sna_Y[6] = 240
+	sna_Y[7] = 240
+	sna_Y[8] = 240
+	sna_Y[9] = 240
+	sna_Y[10] = 240
+	sna_X[1] = 240
+	sna_X[2] = 220
+	sna_X[3] = 200
+	sna_X[4] = 180
+	sna_X[5] = 160
+	sna_X[6] = 140
+	sna_X[7] = 120
+	sna_X[8] = 100
+	sna_X[9] = 80
+	sna_X[10] = 60
+	sna_mode = 1;
+	sna_draw();
+	}
+}
+
+function sna_boule()
+	{
+	sna_error = false;
+	sna_bouleX = Math.round(Math.random()*(sna_larg-20)/20)*20;
+	sna_bouleY = Math.round(Math.random()*(sna_haut-20)/20)*20;
+	for(a=1;a<=sna_nbbloc;a++)
+		{
+		if(sna_bouleX == sna_X[a] && sna_bouleY == sna_Y[a])
+			sna_error = true;
+		}
+	if(sna_error)
+		sna_boule();
+	else
+		{
+		document.getElementById("sna_boule").style.top = sna_bouleY;
+		document.getElementById("sna_boule").style.left = sna_bouleX;		
+		}
+	}
+document.onkeypress = getKey;
+</SCRIPT><BR>
+<DIV STYLE="position:relative;width:300;height:20;border-width:0;border-style:solid;border-color:black;background:#94B6A6;color:#4A5B53;font-family:System;font-size:bold;" ID=sna_afficheur>Votre score : -</DIV></CENTER>
+
+<!-- FIN DU SCRIPT -->
