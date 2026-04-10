@@ -1,73 +1,68 @@
-# Retro Snake JS
+# 🐍 Retro Snake JS
+
 <p align="center"\>
 <img src="https://github.com/Mathieu7483/Snake/blob/main/a-high-quality-top-down-view-of-a-digital-snake-ma.png"\>
 </p>
 
----
+## 📝 Description
 
-## Description
+Une implémentation classique du jeu **Snake** conçue en JavaScript pur (*Vanilla JS*). Le jeu utilise une logique de rendu dynamique via la manipulation directe du DOM pour afficher les segments du serpent et la nourriture sur une zone de jeu de **600x400 pixels**.
 
-Une implémentation classique du jeu **Snake** conçue en JavaScript pur (*Vanilla JS*). Le jeu utilise une logique de rendu dynamique via la manipulation directe du DOM pour afficher les segments du serpent et la nourriture sur une zone de jeu de 600x400 pixels.
+Le design adopte une esthétique **rétro** avec une palette de couleurs minimaliste rappelant les nuances de vert des consoles portables iconiques.
 
-Le design adopte une esthétique **rétro** avec une palette de couleurs minimaliste (nuances de vert "Game Boy").
+⚠️ **Note historique :** Ce projet a été réalisé il y a plus d'une vingtaine d'années. Une mise à jour utilisant les standards modernes (**HTML5 Canvas**, **JS ES6**) est prévue pour remplacer la manipulation directe du DOM par balises `DIV`.
 
-ce projet a été réalisé il y a plus d'une vingtaine d'années et les langages sont depreciés. Une MAJ avec HTML5 et Javascript ES6 sera réalisée ulterieurement
+-----
 
----
+## ✨ Fonctionnalités
 
-## Fonctionnalités
+  * ⚙️ **Moteur de jeu cyclique** : Gestion des déplacements et des collisions par intervalles de temps réguliers.
+  * 📈 **Système de score** : Score dynamique qui augmente lors de la capture d'objets et diminue avec le temps pour récompenser la rapidité.
+  * 🚫 **Détection de collisions** : Gestion stricte des limites du cadre et de l'auto-collision (le serpent ne doit pas se toucher).
+  * 🍎 **Génération intelligente** : La nourriture apparaît aléatoirement mais jamais sur une zone occupée par le corps du serpent.
 
-  * **Moteur de jeu cyclique** : Gestion des déplacements et des collisions par intervalles de temps.
-  * **Système de score** : Score dynamique qui augmente lors de la capture d'objets et diminue légèrement avec le temps pour encourager la rapidité.
-  * **Détection de collisions** : Le jeu se termine si le serpent touche les bords du cadre ou son propre corps.
-  * **Génération de nourriture intelligente** : Les nouveaux éléments n'apparaissent jamais sur le corps actuel du serpent.
+-----
 
----
+## 🛠️ Prérequis
 
-## Prérequis
+Aucun outil de compilation (comme `gcc`) ou serveur n'est nécessaire [cite: 2025-10-22].
 
-Aucun outil de compilation ou serveur complexe n'est nécessaire.
+  * 🌐 Un navigateur web récent (Chrome, Firefox, Edge, Safari).
+  * ⌨️ Un clavier physique (utilisation du pavé numérique).
 
-  * Un navigateur web récent (Chrome, Firefox, Edge, Safari).
-  * Un clavier physique pour les contrôles.
+-----
 
----
-
-## Commandes et Exécution
+## 🎮 Commandes et Exécution
 
 1.  **Lancer le jeu** :
-    Ouvrez le fichier `snake.html` directement dans votre navigateur.
+    Ouvrez le fichier `snake.html` directement dans votre navigateur. 🌍
 
 2.  **Contrôles** :
 
       * **D** : Commencer ou Redémarrer la partie.
-      * **8** : Aller vers le haut.
-      * **2** : Aller vers le bas.
-      * **4** : Aller vers la gauche.
-      * **6** : Aller vers la droite.
+      * **8** : ⬆️ Aller vers le haut.
+      * **2** : ⬇️ Aller vers le bas.
+      * **4** : ⬅️ Aller vers la gauche.
+      * **6** : ➡️ Aller vers la droite.
 
-> **Note technique** : Les contrôles utilisent les touches numériques (pavé numérique) comme défini dans la fonction `getKey`.
+> **Note technique** : Les contrôles sont mappés sur les touches numériques du pavé directionnel.
 
----
+-----
 
-## Structure Technique
+## 📂 Structure Technique
 
-  * **Rendu** : Utilisation de balises `DIV` en positionnement absolu générées par le script.
-  * **Logique de mouvement** : Utilisation de tableaux (`sna_X`, `sna_Y`) pour stocker les coordonnées de chaque segment du serpent.
-  * **Récursivité** : La fonction `sna_boule()` utilise la récursivité pour garantir un emplacement libre lors de l'apparition de la nourriture.
+  * 🎨 **Rendu** : Génération dynamique de balises `DIV` en positionnement absolu.
+  * 🧠 **Logique de mouvement** : Utilisation de tableaux (`sna_X`, `sna_Y`) pour stocker les coordonnées des segments du serpent.
+  * 🔄 **Récursivité** : La fonction `sna_boule()` utilise la récursivité pour garantir un emplacement libre lors de l'apparition de la nourriture.
 
----
-
-## Auteur
+-----
 
 ## ✍️ Auteur
 
-  * **Mathieu** - *Étudiant en programmation* - [Mathieu GODALIER](https://github.com/Mathieu7483)
-
----
-
-## Licence
-
-Ce projet est libre d'utilisation à des fins pédagogiques.
+  * **Mathieu** - *Étudiant en programmation, spécialisation Machine Learning* - [👤 Mon profil Github](https://github.com/Mathieu7483)
 
 -----
+
+## ⚖️ Licence
+
+Ce projet est libre d'utilisation à des fins pédagogiques. 📄
