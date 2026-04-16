@@ -10,7 +10,7 @@ Une implémentation classique du jeu **Snake** conçue en JavaScript pur (*Vanil
 
 Le design adopte une esthétique **rétro** avec une palette de couleurs minimaliste rappelant les nuances de vert des consoles portables iconiques.
 
-⚠️ **Note historique :** Ce projet a été réalisé il y a plus d'une vingtaine d'années. Une mise à jour utilisant les standards modernes (**HTML5 Canvas**, **JS ES6**) est prévue pour remplacer la manipulation directe du DOM par balises `DIV`.
+⚠️ **Note historique :** Ce projet a été réalisé il y a plus d'une vingtaine d'années. Une mise à jour utilisant les standards modernes a été effectuée (V2).
 
 -----
 
